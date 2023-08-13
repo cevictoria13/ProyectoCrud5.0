@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style5.css">
+
+    <title>ProCRUD-Maratón 21K</title>
+</head>
+
+<body>
+    <!--Header-->
+    <header>
+        <div class="text-center p-2">
+            <h1 id="title1">Maratón 21K</h1>
+        </div>
+    </header>
+    <hr>
+
+    <br>
+    <!--Formulario para registrar atletas de una maratón. Se solicita: nombre, email y teléfono, cuya información se podrá editar o eliminar según se requiera-->
+
+    <div class="container">
+        <div class="container mb-5">
+            <div class="container mb-3">
+                <h3 id="text1" class="contenedor mb-3">Registro de Atletas</h3>
+            </div>
+            <br>
+
+            <div class="class"="row">
+                <div class="mb-3">
+                    <label class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="tu nombre aquí">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="tu email aquí">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Teléfono</label>
+                    <input type="number" class="form-control" id="inputPhone" placeholder="+56">
+                </div>
+                <br>
+                <div class="container">
+                    <button type="button" class="btn btn-primary btn-lg" id="btnAdd"
+                        onclick="addData()">Agregar</button>
+
+                    <button type="button" class="btn btn-warning btn-lg" id="btnUpdate">Actualizar</button>
+                </div>
+            </div>
+            <br>
+            <hr>
+
+            <!--Construcción de la tabla para recepcionar datos de los inscritos-->
+
+            <table class="table table-stripped" id="tableData">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre Completo</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--Footer que contempla un botón para consultar por los resultados de los atletas inscritos-->
+
+    <footer>
+        <div class="card text-center">
+            <div class="card-header"><b>Resultado Atletas</div> </b>
+            <div class="card-body">
+                <a href="#" class="btn btn-primary">Contacto</a>
+            </div>
+            <div class="card-footer text-muted">Atacama 2023</div>
+        </div>
+    </footer>
+
+    <!-- Integración de bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="./app5.js"></script>
+</body>
+
+</html>
