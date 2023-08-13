@@ -24,33 +24,11 @@ function validateForm(){
     }
     return true;
 
-
 }
-function showData(){
-    let lista;
-    if(localStorage.getItem('lista')==null){
-        lista=[];
-    }else{
-        lista = JSON.parse(localStorage.getItem("lista"));
-    }
-    let html="";
-    lista.forEach(function(element, index){
-        html += "<tr>";
-        html += "<td>"+element.name+"</td>";
-        html += "<td>"+element.email+"</td>";
-        html += "<td>"+element.phone+"</td>";
-        html += '<td><button onclick="deleteData('+ index +')" class="btn btn-primary">Eliminar</button> <button onclick="updateData('+index+')" class="btn btn-warning">Editar</button></td>';
-        html += "</tr>";
-    });
-    document.querySelector('#tableData tbody').innerHTML = html;
-
-}
-document.onload = showData();
-
 
 function addData(){
     if(validateForm()==true){
-        //obtengo valores de los campos
+        
     let name = document.getElementById('inputName').value;
     let email = document.getElementById('inputEmail').value;
     let phone =document.getElementById('inputPhone').value;
@@ -79,6 +57,28 @@ function addData(){
     }
 
 
+function showData(){
+    let lista;
+    if(localStorage.getItem('lista')==null){
+        lista=[];
+    }else{
+        lista = JSON.parse(localStorage.getItem("lista"));
+    }
+    let html="";
+    lista.forEach(function(element, index){
+        html += "<tr>";
+        html += "<td>"+element.name+"</td>";
+        html += "<td>"+element.email+"</td>";
+        html += "<td>"+element.phone+"</td>";
+        html += '<td><button onclick="deleteData('+ index +')" class="btn btn-primary">Eliminar</button> <button onclick="updateData('+index+')" class="btn btn-warning">Editar</button></td>';
+        html += "</tr>";
+    });
+    document.querySelector('#tableData tbody').innerHTML = html;
+
+}
+document.onload = showData();
+
+
 
 }
 function deleteData(index){
@@ -104,28 +104,26 @@ function updateData(index){
     }else{
         lista = JSON.parse(localStorage.getItem("lista"));
     }
-    //relleno el formulario con la data a editar
+   
     document.getElementById('inputName').value = lista[index].name;
     document.getElementById('inputEmail').value = lista[index].email;
     document.getElementById('inputPhone').value = lista[index].phone;
-    //funcion para actualizar datos
+   
     document.querySelector("#btnUpdate").onclick=function(){
         if(validateForm()==true){
-            //actualizar datos de la lista
+          
             lista[index].name =document.getElementById('inputName').value
             lista[index].email =document.getElementById('inputEmail').value
             lista[index].phone =document.getElementById('inputPhone').value
 
-            //guardamos la lista actualizada en el localstorage
             localStorage.setItem('lista', JSON.stringify(lista));
 
-            //actualizamos la tabla
+        
             showData();
             document.getElementById('inputName').value="";
             document.getElementById('inputEmail').value="";
             document.getElementById('inputPhone').value="";
 
-            //cambiar visibilidad de los botones
             document.getElementById("btnAdd").style.display='block';
             document.getElementById("btnUpdate",btnAdd).style.display='none';
 
