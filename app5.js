@@ -74,13 +74,11 @@ function showData(){
         html += "</tr>";
     });
     document.querySelector('#tableData tbody').innerHTML = html;
-
 }
 document.onload = showData();
-
-
-
 }
+
+
 function deleteData(index){
     let lista;
     if(localStorage.getItem('lista')==null){
@@ -91,8 +89,10 @@ function deleteData(index){
     lista.splice(index, 1);
     localStorage.setItem('lista',JSON.stringify(lista));
     showData();
-
 }
+
+
+
 function updateData(index){
     document.getElementById("btnAdd").style.display='none';
     document.getElementById("btnUpdate",btnAdd).style.display='block';
